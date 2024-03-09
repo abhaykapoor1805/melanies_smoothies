@@ -13,6 +13,10 @@ st.write(
 name_on_order = st.text_input('Name on Smoothie : ')
 st.write('The Name of your Smoothie will be : ', name_on_order)
 
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
+
 #option = st.selectbox(
   #  'What is your favourite fruit?',
  #   ('Banana', 'Strawberries', 'Peaches'))
