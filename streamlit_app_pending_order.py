@@ -13,7 +13,10 @@ st.write(
 )
 
 # Get the current credentials
-session = get_active_session()
+#session = get_active_session()
+cnx = st.connection("snowflake")
+session = cnx.session()
+
 my_dataframe = session.table("smoothies.public.orders").filter(col("order_filled")==0).collect()
 #st.dataframe(data=my_dataframe, use_container_width=True)
 editable_df = st.experimental_data_editor(my_dataframe)
